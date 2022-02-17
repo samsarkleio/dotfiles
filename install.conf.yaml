@@ -1,0 +1,17 @@
+- defaults:
+    link:
+      relink: true
+      force: true
+
+- clean: ['~']
+
+- link:
+    ~/.zshrc: zshrc
+
+- create:
+    - ~/downloads
+
+- shell:
+  - [git submodule update --init --recursive, Installing submodules]
+  - [sudo chsh -s $(which zsh) $(whoami)]
+  - [export SHELL="/bin/zsh"]
