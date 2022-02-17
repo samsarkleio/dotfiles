@@ -8,7 +8,7 @@ export ZSH="${HOME}/.oh-my-zsh"
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME="${ZSH_THEME:-avit}"
+ZSH_THEME="${ZSH_THEME:-af-magic}"
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -101,6 +101,8 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 alias dall="echo '\n-- CONTAINERS --' && docker container ps -a && echo '\n-- VOLUMES --' && docker volume ls && echo '\n-- NETWORKS --' && docker network ls && echo '\n-- IMAGES --' && docker image ls"
+
+alias gs='git status'
 alias p='git pull --ff-only'
 alias main='git checkout main'
 alias master='git checkout master'
