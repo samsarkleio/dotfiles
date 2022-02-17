@@ -101,16 +101,6 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 alias dall="echo '\n-- CONTAINERS --' && docker container ps -a && echo '\n-- VOLUMES --' && docker volume ls && echo '\n-- NETWORKS --' && docker network ls && echo '\n-- IMAGES --' && docker image ls"
-
-function gitpush() {
-  git add .
-  git commit -a -m "$1"
-  git push
-}
-alias gp=gitpush
-alias gpup='git push --set-upstream origin $(git rev-parse --abbrev-ref HEAD)'
-
-alias gs='git status'
 alias p='git pull --ff-only'
 alias main='git checkout main'
 alias master='git checkout master'
