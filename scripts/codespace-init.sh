@@ -13,7 +13,7 @@ if [[ "${CODESPACES:-}" == 'true' ]]; then
   # packages
   echo "Install useful packages"
   sudo apt update && sudo apt install -y silversearcher-ag shellcheck fzf
-  curl -fLos "${HOME}/tmp/bat/bat-musl_0.19.0_amd64.deb" --create-dirs https://github.com/sharkdp/bat/releases/download/v0.19.0/bat-musl_0.19.0_amd64.deb
+  curl --silent --fail --location --output "${HOME}/tmp/bat/bat-musl_0.19.0_amd64.deb" --create-dirs https://github.com/sharkdp/bat/releases/download/v0.19.0/bat-musl_0.19.0_amd64.deb
   sudo dpkg -i "${HOME}/tmp/bat/bat-musl_0.19.0_amd64.deb"
   rm -rf "${HOME}/tmp/"
 
