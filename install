@@ -43,6 +43,8 @@ git submodule update --init --recursive "${DOTBOT_DIR}"
 # Install tools for Codespaces only
 if [[ "${CODESPACES:-}" == 'true' ]]; then
 
+  echo "codespaces"
+
   # solargraph, rufo
   if command -v gem &>/dev/null; then
     gem install --quiet solargraph rufo
@@ -52,7 +54,6 @@ if [[ "${CODESPACES:-}" == 'true' ]]; then
   sudo apt update
   sudo apt install -y silversearcher-ag
 
-  # starship prompt
-  sh -c "$(curl -fsSL https://starship.rs/install.sh)"
-
+else 
+  echo "not codespaces"
 fi
