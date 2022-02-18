@@ -13,3 +13,48 @@ git -C "${DOTBOT_DIR}" submodule sync --quiet --recursive
 git submodule update --init --recursive "${DOTBOT_DIR}"
 
 "${BASEDIR}/${DOTBOT_DIR}/${DOTBOT_BIN}" -d "${BASEDIR}" -c "${CONFIG}" "${@}"
+
+
+# Install fonts
+# if [[ "${CODESPACES:-}" == 'true' ]]; then
+#   cd ~/downloads
+#   wget https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/JetBrainsMono.zip
+#   mkdir -p ~/.local/share/fonts
+#   unzip JetBrainsMono.zip -d ~/.local/share/fonts
+#   fc-cache -f -v
+#   rm JetBrainsMono.zip
+#   cd -
+
+#   sudo apt install fonts-firacode
+
+# elif [[ $(uname) == 'Darwin' ]]; then
+#   # cd ~/Downloads
+#   # wget https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/JetBrainsMono.zip
+#   # mkdir -p /Library/Fonts
+#   # unzip JetBrainsMono.zip -d /Library/Fonts
+#   # fc-cache -f -v
+#   # rm JetBrainsMono.zip
+#   # cd -
+
+#   # brew tap homebrew/cask-fonts
+#   # brew install --cask font-fira-code
+# fi
+
+# Install tools for Codespaces only
+if [[ "${CODESPACES:-}" == 'true' ]]; then
+
+  # solargraph, rufo
+  if command -v gem &>/dev/null; then
+    gem install --quiet solargraph rufo
+  fi
+
+  # apt packages
+  sudo apt update
+  sudo apt install -y silversearcher-ag
+
+  # starship prompt
+  # sh -c "$(curl -fsSL https://starship.rs/install.sh)"
+  # git clone https://github.com/spaceship-prompt/spaceship-prompt.git "$ZSH_CUSTOM/themes/spaceship-prompt" --depth=1
+  # ln -s "$ZSH_CUSTOM/themes/spaceship-prompt/spaceship.zsh-theme" "$ZSH_CUSTOM/themes/spaceship.zsh-theme"
+
+fi
