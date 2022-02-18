@@ -27,5 +27,7 @@ alias rpo='git remote prune origin'
 alias main='git checkout main'
 alias master='git checkout master'
 
+alias ct='gh cs code --codespace $(gh cs create --repo clio/themis --machine premiumLinux)'
+
 # Starship prompt
 eval "$(starship init zsh)"
