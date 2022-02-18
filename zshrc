@@ -23,6 +23,7 @@ alias dall="echo '\n-- CONTAINERS --' && docker container ps -a && echo '\n-- VO
 
 alias gs='git status'
 alias p='git pull --ff-only'
+alias rpo='git remote prune origin'
 alias main='git checkout main'
 alias master='git checkout master'
 
