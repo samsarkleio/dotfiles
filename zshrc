@@ -2,7 +2,6 @@
 export ZSH="${HOME}/.oh-my-zsh"
 
 # Themes
-# ZSH_THEME="spaceship"
 ZSH_THEME="robbyrussell"
 
 # Which plugins would you like to load?

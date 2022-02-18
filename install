@@ -53,8 +53,6 @@ if [[ "${CODESPACES:-}" == 'true' ]]; then
   sudo apt install -y silversearcher-ag
 
   # starship prompt
-  # sh -c "$(curl -fsSL https://starship.rs/install.sh)"
-  # git clone https://github.com/spaceship-prompt/spaceship-prompt.git "$ZSH_CUSTOM/themes/spaceship-prompt" --depth=1
-  # ln -s "$ZSH_CUSTOM/themes/spaceship-prompt/spaceship.zsh-theme" "$ZSH_CUSTOM/themes/spaceship.zsh-theme"
+  sh -c "$(curl -fsSL https://starship.rs/install.sh)"
 
 fi
