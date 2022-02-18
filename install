@@ -1,5 +1,19 @@
 #!/usr/bin/env bash
 
+# Install tools for Codespaces only
+if [[ "${CODESPACES:-}" == 'true' ]]; then
+
+  # gems
+  if command -v gem &>/dev/null; then
+    gem install --quiet solargraph rufo
+  fi
+
+  # apt packages
+  sudo apt update
+  sudo apt install -y silversearcher-ag
+
+fi
+
 set -e
 
 CONFIG="install.conf.yaml"
@@ -39,21 +53,3 @@ git submodule update --init --recursive "${DOTBOT_DIR}"
 #   # brew tap homebrew/cask-fonts
 #   # brew install --cask font-fira-code
 # fi
-
-# Install tools for Codespaces only
-if [[ "${CODESPACES:-}" == 'true' ]]; then
-
-  echo "codespaces"
-
-  # solargraph, rufo
-  if command -v gem &>/dev/null; then
-    gem install --quiet solargraph rufo
-  fi
-
-  # apt packages
-  sudo apt update
-  sudo apt install -y silversearcher-ag
-
-else 
-  echo "not codespaces"
-fi
