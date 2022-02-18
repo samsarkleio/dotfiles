@@ -6,8 +6,20 @@ $git_branch\
 $git_state\
 $git_status\
 $cmd_duration\
+$memory_usage\
 $line_break\
 $character"""
 
 [directory]
 truncation_length = 8
+
+[memory_usage]
+disabled = false
+threshold = 90
+symbol = " "
+style = "bold dimmed green"
+
+# ignores untracked files for performance
+[custom.dirty]
+when = "(git rev-parse --is-inside-work-tree >/dev/null 2>&1) && (! git diff --no-ext-diff --quiet --exit-code)"
+format = "[!](red bold)"
