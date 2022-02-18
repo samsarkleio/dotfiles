@@ -10,9 +10,11 @@ In order to support multiple platforms (linux, macOS), some files are only copie
 
 Platform-specific files:
 - oh-my-zsh/custom
+  - common.zsh
   - codespace.zsh
   - macos.sh
 - scripts/
+  - common-init.sh
   - codespace-init.sh
   - macos-init.sh
 

@@ -5,38 +5,26 @@
 
 - clean: ['~']
 
+- create:
+    - ~/downloads
+
 - link:
     ~/.zshrc: zshrc
+    ~/.oh-my-zsh/custom/common.zsh:
+      path: oh-my-zsh/custom/common.zsh
+    ~/.oh-my-zsh/custom/macos.zsh:
+      if: '[ `uname` = Darwin ]'
+      path: oh-my-zsh/custom/macos.zsh
+    ~/.oh-my-zsh/custom/codespace.zsh:
+      if: '[ "${CODESPACES}" = true ]'
+      path: oh-my-zsh/custom/codespace.zsh
     ~/.starship.toml:
       if: '[ "${CODESPACES}" = true ]'
       path: starship.toml
       force: true
-    ~/.oh-my-zsh/custom/common.zsh:
-      path: oh-my-zsh/custom/common.zsh
-    ~/.oh-my-zsh/custom/codespace.zsh:
-      if: '[ "${CODESPACES}" = true ]'
-      path: oh-my-zsh/custom/codespace.zsh
-    ~/.oh-my-zsh/custom/macos.zsh:
-      if: '[ `uname` = Darwin ]'
-      path: oh-my-zsh/custom/macos.zsh
-
-- create:
-    - ~/downloads
 
 - shell:
   - [git submodule update --init --recursive, Installing submodules]
-  -
-    command: scripts/common-init.sh
-    stdout: true
-    stderr: true
-    description: "Running common init..."
-  -
-    command: scripts/codespace-init.sh
-    stdout: true
-    stderr: true
-    description: "Running codespace init (if applicable)..."
-  -
-    command: scripts/macos-init.sh
-    stdout: true
-    stderr: true
-    description: "Running macOS init (if applicable)..."
+  - [scripts/common-init.sh, Common init]
+  - [scripts/codespace-init.sh, Codespace init]
+  - [scripts/macos-init.sh, macOS init]
