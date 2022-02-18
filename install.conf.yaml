@@ -17,4 +17,4 @@
   - [sudo chsh -s $(which zsh) $(whoami), Switching shell to zsh]
   - [export SHELL="/bin/zsh", Exporting SHELL variable]
   - [sh -c "$(curl -fsSL https://starship.rs/install.sh)", Installing Starship prompt]
-  - [export STARSHIP_CONFIG="{$HOME}/starship.toml", Exporting Starship config variable]
+  - [export STARSHIP_CONFIG="$HOME/starship.toml", Exporting Starship config variable]
