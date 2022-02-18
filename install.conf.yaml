@@ -7,7 +7,10 @@
 
 - link:
     ~/.zshrc: zshrc
-    ~/.starship.toml: starship.toml
+    ~/.starship.toml:
+      if: '[ "${CODESPACES}" = true ]'
+      path: starship.toml
+      force: true
     ~/.oh-my-zsh/custom/codespaces.zsh:
       if: '[ "${CODESPACES}" = true ]'
       path: oh-my-zsh/custom/codespaces.zsh
@@ -18,6 +21,4 @@
 
 - shell:
   - [git submodule update --init --recursive, Installing submodules]
-  - [sudo chsh -s $(which zsh) $(whoami), Switching shell to zsh]
-  - [export SHELL="/bin/zsh", Exporting SHELL variable]
-  - [sh -c "$(curl -fsSL https://starship.rs/install.sh)" -- --yes, Installing Starship prompt]
+  - [scripts/codespace-init.sh]
