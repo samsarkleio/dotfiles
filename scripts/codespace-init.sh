@@ -19,12 +19,12 @@ if [[ "${CODESPACES:-}" == 'true' ]]; then
 
   # set shell to zsh
   echo "Set shell to zsh"
-  sudo chsh -s $(which zsh) $(whoami)
+  chsh -s "$(which zsh)" "$(whoami)"
   export SHELL="/bin/zsh"
 
   # starship prompt
   echo "Install starship prompt"
-  sh -c "$(curl -fsSL https://starship.rs/install.sh)" -- --yes
+  sudo sh -c "$(curl -fsSL https://starship.rs/install.sh)" -- --yes
 
   # fonts
   # cd ~/downloads
