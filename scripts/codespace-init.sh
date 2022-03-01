@@ -19,7 +19,7 @@ if [[ "${CODESPACES:-}" == 'true' ]]; then
 
   # set shell to zsh
   echo "Set shell to zsh"
-  chsh -s "$(which zsh)" "$(whoami)"
+  sudo chsh -s "$(which zsh)" "$(whoami)"
   export SHELL="/bin/zsh"
 
   # starship prompt
