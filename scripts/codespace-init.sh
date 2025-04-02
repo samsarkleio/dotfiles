@@ -7,7 +7,7 @@ if [[ "${CODESPACES:-}" == 'true' ]]; then
   # gems
   if command -v gem &>/dev/null; then
     echo "Install gems"
-    gem install --quiet solargraph rufo
+    sudo gem install --quiet solargraph rufo
   fi
 
   # packages
